@@ -1,4 +1,4 @@
-# Data-Pipeline-wtih-Kafka_Spark_Hadoop_Prefect
+# Data-Pipeline-with-Kafka_Spark_Hadoop_Prefect
 
 ![Project Structure](/images/Project-Structure.png "a title")
 

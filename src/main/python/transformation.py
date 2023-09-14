@@ -28,6 +28,4 @@ class TransformDF:
                 else:
                     df = df.withColumn(column, df[column].cast(DateType()))
         return df
-    
-    def save_to_warehouse(self, df):
         
