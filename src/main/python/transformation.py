@@ -28,4 +28,18 @@ class TransformDF:
                 else:
                     df = df.withColumn(column, df[column].cast(DateType()))
         return df
-        
+
+    def stage_to_hdfs(self, df, path):
+        try:
+            df.write.save(path, format='parquet', mode='append')
+            return 'Success'
+        except Exception as e:
+            print(e)
+        finally:
+            return
+
+obj = TransformDF()
+df = obj.read_from_hdfs()
+df2 = obj.change_to_proper_names(df)
+df3 = obj.change_to_proper_dtypes(df2)
+obj.stage_to_hdfs(df3, '')

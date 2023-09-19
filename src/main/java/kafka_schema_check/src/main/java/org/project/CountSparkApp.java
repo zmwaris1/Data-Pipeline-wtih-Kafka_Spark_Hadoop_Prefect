@@ -10,8 +10,8 @@ import java.util.Iterator;
 public class CountSparkApp {
     
   public static void main(String[] args) {
-    String logFile = "/media/zmwaris/mydrive/data-folder/Project-1/Data-Pipeline-wtih-Kafka_Spark_Hadoop_Prefect/src/main/java/someFile.txt"; // Should be some file on your system
-    SparkSession spark = SparkSession.builder().master("spark://zmwaris-Predator-PH315-51:7077").appName("Simple Application").getOrCreate();
+    String logFile = "hdfs://zmwaris-Predator-PH315-51:9000/user/someFile.txt"; // Should be some file on your system
+    SparkSession spark = SparkSession.builder().master("local[1]").appName("Simple Application").getOrCreate();
     Dataset<String> logData = spark.read().textFile(logFile);
     logData.show();
     System.out.println(logData.count());
